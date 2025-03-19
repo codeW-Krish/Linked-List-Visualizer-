@@ -16,8 +16,8 @@ const Visualization = ({ nodes }) => {
       ) : (
         <div className="node-container">
           {nodes.map((node, idx) => (
-            <div key={node.id} className="node-with-arrow">
-              <Node 
+            <div className="node-with-arrow" key={idx}>
+              <Node
                 value={node.value}
                 index={idx}
                 highlighted={node.highlighted}
@@ -26,14 +26,15 @@ const Visualization = ({ nodes }) => {
                 isHead={idx === 0}
                 isTail={idx === nodes.length - 1}
               />
-              {idx < nodes.length - 1 && (
+              {idx < nodes.length - 1 ? (
                 <div className="arrow-connector">
                   <ArrowRight size={28} strokeWidth={2.5} />
                 </div>
-              )}
-              {idx === nodes.length - 1 && (
-                <div className="arrow-connector null-pointer">
-                  <div className="null-circle">NULL</div>
+              ) : (
+                <div className="null-pointer" data-testid="null-pointer">
+                  <div className="null-circle">
+                    <span>NULL</span>
+                  </div>
                 </div>
               )}
             </div>

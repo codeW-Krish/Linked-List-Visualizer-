@@ -1,6 +1,6 @@
 import React from 'react';
 import { X, Info, Clock, Palette } from 'lucide-react';
-import '../../../src/styles/LinkedListVisualizer.css';
+import '../../styles/CircularLinkedListVisualizer.css';
 
 const InfoSidebar = ({ showInfo, setShowInfo }) => {
   if (!showInfo) return null;
@@ -10,7 +10,7 @@ const InfoSidebar = ({ showInfo, setShowInfo }) => {
       <div className="sidebar-header">
         <h2 className="sidebar-title">
           <Info size={18} className="mr-2" />
-          Operation Details
+          Circular Linked List
         </h2>
         <button onClick={() => setShowInfo(false)} className="sidebar-close">
           <X size={18} />
@@ -19,20 +19,18 @@ const InfoSidebar = ({ showInfo, setShowInfo }) => {
       
       <div className="sidebar-content">
         <div className="sidebar-section">
-          <h3 className="sidebar-section-title">Insert Operations</h3>
-          <ul className="info-list">
-            <li>Insert at Head: Adds a new node at the beginning</li>
-            <li>Insert at End: Adds a new node at the end</li>
-            <li>Insert at Index: Adds a new node at specified position</li>
-          </ul>
+          <h3 className="sidebar-section-title">Definition</h3>
+          <p>
+            A circular linked list is a variation of the linked list where the last node points back to the first node, creating a circular structure.
+          </p>
         </div>
         
         <div className="sidebar-section">
-          <h3 className="sidebar-section-title">Delete Operations</h3>
+          <h3 className="sidebar-section-title">Key Features</h3>
           <ul className="info-list">
-            <li>Delete at Head: Removes the first node</li>
-            <li>Delete at End: Removes the last node</li>
-            <li>Delete at Index: Removes node at specified position</li>
+            <li>Last node points to the first node</li>
+            <li>No NULL pointer at the end</li>
+            <li>Can be traversed indefinitely</li>
           </ul>
         </div>
         

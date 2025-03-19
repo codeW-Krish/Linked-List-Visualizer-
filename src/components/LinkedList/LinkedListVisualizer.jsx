@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Info, Settings, List, Database } from 'lucide-react';
+import { Info, Settings, List, Database, Sun, Moon } from 'lucide-react';
 import Controls from './Controls';
 import Visualization from './Visualization';
 import StepsList from './StepsList';
@@ -30,6 +30,29 @@ const LinkedListVisualizer = () => {
   const [showInfo, setShowInfo] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [steps, setSteps] = useState([]);
+  const [darkMode, setDarkMode] = useState(() => {
+    // Check if the user has a theme preference in localStorage
+    const savedTheme = localStorage.getItem('darkMode');
+    // Return true if darkMode is explicitly set to 'true', otherwise default to system preference or false
+    return savedTheme === 'true' ? true : 
+           (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  });
+
+  // Apply dark mode class to root element when theme changes
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark-theme');
+    } else {
+      document.documentElement.classList.remove('dark-theme');
+    }
+    // Save theme preference to localStorage
+    localStorage.setItem('darkMode', darkMode);
+  }, [darkMode]);
+
+  // Toggle dark mode
+  const toggleTheme = () => {
+    setDarkMode(prevMode => !prevMode);
+  };
 
   // Helper function to create a new node
   const createNode = useCallback((value) => {
@@ -395,6 +418,13 @@ const LinkedListVisualizer = () => {
             >
               <Settings size={18} />
               <span>Settings</span>
+            </button>
+            <button 
+              onClick={toggleTheme}
+              className="theme-toggle"
+              title={darkMode ? "Switch to light mode" : "Switch to dark mode"}
+            >
+              {darkMode ? <Sun size={18} /> : <Moon size={18} />}
             </button>
           </div>
         </div>

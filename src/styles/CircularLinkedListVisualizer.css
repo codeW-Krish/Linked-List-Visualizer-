@@ -1,0 +1,184 @@
+/* Import base styles from LinkedListVisualizer */
+@import './LinkedListVisualizer.css';
+
+/* Circular Linked List specific styles */
+.circular-list-container {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 400px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.circular-node-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  min-height: 350px;
+}
+
+.circular-empty-list {
+  color: #888;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-size: 1.125rem;
+  height: 12rem;
+  border-radius: 8px;
+  border: 2px dashed #ddd;
+  text-align: center;
+  margin: 1rem;
+}
+
+.dark-theme .circular-empty-list {
+  border-color: #444;
+  color: #aaa;
+}
+
+.circular-node-wrapper {
+  position: absolute;
+  transform-origin: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  width: 80px;
+  height: 80px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.circular-connector {
+  position: absolute;
+  z-index: 5;
+  height: 3px;
+  background-color: var(--primary-light);
+  transform-origin: left center;
+  box-shadow: 0 0 8px rgba(99, 102, 241, 0.4);
+  pointer-events: none;
+  transition: all 0.5s ease-in-out;
+}
+
+.connector-arrow {
+  position: absolute;
+  right: -8px;
+  top: -7px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 11;
+}
+
+.dark-theme .connector-arrow {
+  background-color: #1a202c;
+}
+
+.return-arrow {
+  position: absolute;
+  z-index: 5;
+  height: 3px;
+  background-color: var(--primary-light);
+  transform-origin: left center;
+  box-shadow: 0 0 8px rgba(99, 102, 241, 0.4);
+  pointer-events: none;
+  transition: all 0.5s ease-in-out;
+}
+
+.return-arrow-icon {
+  position: absolute;
+  right: -8px;
+  top: -7px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 11;
+}
+
+.dark-theme .return-arrow-icon {
+  background-color: #1a202c;
+}
+
+/* Enhanced animation for circular icon */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.circular-icon {
+  animation: spin 10s linear infinite;
+  filter: drop-shadow(0 0 2px rgba(99, 102, 241, 0.5));
+}
+
+/* Improve node appearance for circular visualization */
+.node {
+  transition: all 0.3s ease-in-out;
+}
+
+.node-appearing {
+  animation: nodeAppear 0.8s ease-in-out;
+}
+
+@keyframes nodeAppear {
+  0% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.node-fading {
+  animation: nodeFade 0.8s ease-in-out;
+}
+
+@keyframes nodeFade {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+}
+
+.node-highlighted {
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.8);
+  transform: scale(1.1);
+}
+
+/* Dark theme adjustments */
+.dark-theme .circular-connector,
+.dark-theme .return-arrow {
+  background-color: var(--primary-light);
+  box-shadow: 0 0 8px rgba(129, 140, 248, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .circular-list-container {
+    min-height: 300px;
+    padding: 1rem;
+  }
+  
+  .circular-node-container {
+    min-height: 250px;
+  }
+  
+  .circular-empty-list {
+    height: 8rem;
+  }
+} 

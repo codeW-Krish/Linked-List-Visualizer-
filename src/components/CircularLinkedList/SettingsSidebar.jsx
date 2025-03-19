@@ -1,6 +1,6 @@
 import React from 'react';
 import { X, Settings, Zap, Trash2, RotateCcw } from 'lucide-react';
-import '../../../src/styles/LinkedListVisualizer.css';
+import '../../styles/CircularLinkedListVisualizer.css';
 
 const SettingsSidebar = ({ 
   showSettings, 
@@ -52,7 +52,7 @@ const SettingsSidebar = ({
             className="btn-danger"
           >
             <Trash2 size={16} />
-            Clear Linked List
+            Clear Circular List
           </button>
           
           <button 

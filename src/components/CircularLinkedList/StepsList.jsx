@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../src/styles/LinkedListVisualizer.css';
+import '../../styles/CircularLinkedListVisualizer.css';
 
 const StepsList = ({ steps }) => {
   return (
