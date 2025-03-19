@@ -1,16 +1,30 @@
 # Linked List Visualizer
 
-An interactive visualization tool for understanding singly linked list data structures and operations.
+An interactive visualization tool for understanding linked list data structures and operations. Currently supports both singly linked lists and circular linked lists.
 
 ## Features
 
-- Visualize a singly linked list with interactive node representation
+- Visualize both singly and circular linked lists with interactive node representation
 - Perform common linked list operations:
   - Insert at head, end, or any index
   - Delete from head, end, or any index
 - Animated step-by-step visualization of each operation
 - Information panel with operation details and time complexity
 - Adjustable animation speed
+- Dark mode support
+
+## Data Structures Included
+
+### Singly Linked List
+- Linear data structure where each node points to the next node
+- Last node points to NULL
+- Operations: insert/delete at head, tail, or any index
+
+### Circular Linked List
+- Variation of linked list where the last node points back to the first node
+- No NULL pointers
+- Forms a complete circle of nodes
+- Operations: insert/delete at head, tail, or any index
 
 ## Getting Started
 
@@ -51,27 +65,34 @@ The build files will be generated in the `dist` directory.
 
 ## Usage Instructions
 
-1. **Insert Operations**:
+1. **Choose a Data Structure**:
+   - Use the navigation bar to switch between Singly Linked List and Circular Linked List
+
+2. **Insert Operations**:
    - Enter a value in the value field
    - Click on "Head" to insert at the beginning
    - Click on "Tail" to insert at the end
-   - Enter an index and click "Index" to insert at that position
+   - Enter an index and click "At Index" to insert at that position
 
-2. **Delete Operations**:
+3. **Delete Operations**:
    - Click "Head" to delete the first node
    - Click "Tail" to delete the last node
-   - Enter an index and click "Index" to delete the node at that position
+   - Enter an index and click "At Index" to delete the node at that position
 
-3. **Settings**:
+4. **Settings**:
    - Click the Settings button to adjust animation speed
    - Use "Clear Linked List" to remove all nodes
    - Use "Clear Operation Steps" to clear the steps display
+
+5. **Information**:
+   - Click the Information button to view details about the data structure
+   - Learn about time complexity and operations
 
 ## Technologies Used
 
 - React.js
 - Vite
-- Tailwind CSS (for styling)
+- CSS (for styling)
 - Lucide React (for icons)
 
 ## License
